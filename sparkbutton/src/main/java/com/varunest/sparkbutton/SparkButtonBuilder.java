@@ -52,6 +52,11 @@ public class SparkButtonBuilder {
         return this;
     }
 
+    public SparkButtonBuilder setChecked(boolean isChecked) {
+        sparkButton.isChecked = isChecked;
+        return this;
+    }
+
     public SparkButton build() {
         sparkButton.init();
         return sparkButton;
