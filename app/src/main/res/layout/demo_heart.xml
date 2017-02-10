@@ -43,6 +43,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:layout_marginTop="10dp"
+                    app:sparkbutton_checked="true"
                     app:sparkbutton_activeImage="@drawable/ic_heart_on"
                     app:sparkbutton_iconSize="30dp"
                     app:sparkbutton_inActiveImage="@drawable/ic_heart_off"

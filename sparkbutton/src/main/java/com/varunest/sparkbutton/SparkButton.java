@@ -123,7 +123,7 @@ public class SparkButton extends FrameLayout implements View.OnClickListener {
 
         imageView.getLayoutParams().height = imageSize;
         imageView.getLayoutParams().width = imageSize;
-        if (drawableInactiveImage != null) {
+        if (drawableInactiveImage != null && !isChecked) {
             // should load inactive img first
             imageView.setImageDrawable(drawableInactiveImage);
             imageView.setColorFilter(inActiveImageTint, PorterDuff.Mode.SRC_ATOP);
@@ -131,7 +131,7 @@ public class SparkButton extends FrameLayout implements View.OnClickListener {
             imageView.setImageDrawable(drawableActiveImage);
             imageView.setColorFilter(activeImageTint, PorterDuff.Mode.SRC_ATOP);
         } else {
-            throw new IllegalArgumentException("One of Inactive/Active Image Resources are required!!");
+            throw new IllegalArgumentException("Missing Image drawable for SparkButton checked state");
         }
         setOnTouchListener();
         setOnClickListener(this);
@@ -293,6 +293,7 @@ public class SparkButton extends FrameLayout implements View.OnClickListener {
     private void getStuffFromXML(AttributeSet attr) {
         TypedArray a = getContext().obtainStyledAttributes(attr, R.styleable.sparkbutton);
         imageSize = a.getDimensionPixelOffset(R.styleable.sparkbutton_sparkbutton_iconSize, Utils.dpToPx(getContext(), 50));
+        isChecked = a.getBoolean(R.styleable.sparkbutton_sparkbutton_checked, false);
         drawableActiveImage = a.getDrawable(R.styleable.sparkbutton_sparkbutton_activeImage);
         drawableInactiveImage = a.getDrawable(R.styleable.sparkbutton_sparkbutton_inActiveImage);
         primaryColor = ContextCompat.getColor(getContext(), a.getResourceId(R.styleable.sparkbutton_sparkbutton_primaryColor, R.color.spark_primary_color));
