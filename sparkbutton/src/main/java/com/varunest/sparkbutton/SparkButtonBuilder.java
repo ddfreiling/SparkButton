@@ -1,6 +1,7 @@
 package com.varunest.sparkbutton;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 
 import com.varunest.sparkbutton.heplers.Utils;
 
@@ -16,13 +17,13 @@ public class SparkButtonBuilder {
         sparkButton = new SparkButton(context);
     }
 
-    public SparkButtonBuilder setActiveImage(int resourceId) {
-        sparkButton.imageResourceIdActive = resourceId;
+    public SparkButtonBuilder setActiveImage(Drawable drawable) {
+        sparkButton.drawableActiveImage = drawable;
         return this;
     }
 
-    public SparkButtonBuilder setInactiveImage(int resourceId) {
-        sparkButton.imageResourceIdInactive = resourceId;
+    public SparkButtonBuilder setInactiveImage(Drawable drawable) {
+        sparkButton.drawableInactiveImage = drawable;
         return this;
     }
 
