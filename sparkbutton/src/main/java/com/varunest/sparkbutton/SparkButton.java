@@ -81,6 +81,16 @@ public class SparkButton extends FrameLayout implements View.OnClickListener {
         init();
     }
 
+    public void setActiveImageDrawable(Drawable drawable) {
+        drawableActiveImage = drawable;
+        if (isChecked) imageView.setImageDrawable(drawable);
+    }
+
+    public void setInactiveImageDrawable(Drawable drawable) {
+        drawableInactiveImage = drawable;
+        if (!isChecked) imageView.setImageDrawable(drawable);
+    }
+
     public void setColors(int startColor, int endColor) {
         this.secondaryColor = startColor;
         this.primaryColor = endColor;
